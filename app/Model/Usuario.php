@@ -3,6 +3,9 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class Usuario extends Model
 {
@@ -14,9 +17,23 @@ class Usuario extends Model
             "id",
             "nome",
             "email",
+            "senha",
             "data_cadastro"
         ])
-        ->limit($limite)
-        ->get();
+        ->limit($limite);
+
+        dd($sql->toSql());
+    }
+
+    public static function cadastrar(Request $request){
+        $sql = self::insert([
+            "nome" => $request->input('nome'),
+            "email" => $request->input('email'),
+            "senha" => Hash::make($request->input('senha')),
+            "data_cadastro" => DB::raw('NOW()')
+            
+        ]);
+
+        dd($sql->toSql(), $request->all());
     }
 }

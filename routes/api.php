@@ -27,3 +27,16 @@ Route::prefix('v1')->group(function(){
         echo 'implementar';
     });
 });
+
+
+ /*Route::prefix('v2')->group(function(){
+
+    Route::get('listagem', function(){
+        return ['Alexandre', 'Camila', 'Bob'];
+    });
+
+    Route::post('cadastrar', function(){
+        echo 'Equipe de altura!';
+    });
+
+ });*/
