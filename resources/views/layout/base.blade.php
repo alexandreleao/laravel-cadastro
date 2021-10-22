@@ -14,6 +14,9 @@
   </div>
 
   <div class="container">
+
+      <a href="{{ url('/home') }}">Home</a>
+      <a href="{{ url('/atualizar-perfil/19') }}">Atualizar Perfil</a>
         @yield('conteudo')
  </div>
         <footer>

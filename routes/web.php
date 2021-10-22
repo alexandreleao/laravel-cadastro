@@ -1,20 +1,16 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 
 
 
 Route::get('/', 'Usuario@cadastrar')->name('home');
 Route::post('/salvar','Usuario@salvar')->name('salvar');
+Route::post('/atualizar/{id}', 'Usuario@atualizarCadastro')->name('atualizar');
+
+
+Route::get('/atualizar-perfil/{id}', 'Usuario@atualizarPerfil')->name('atualizar.perfil');
 
 
