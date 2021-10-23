@@ -18,4 +18,14 @@ class Usuario extends Controller
 
     }
 
+     public function atualizar(Request $request, $id){
+
+        if(UsuarioModel::atualizar($request)){
+            return response("Certo", 201);
+        } else {
+            return response("errado", 409);
+        }
+
+    }
+
 }

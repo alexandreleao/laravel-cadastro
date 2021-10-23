@@ -25,6 +25,7 @@ Route::prefix('v1')->group(function(){
     });
 
     Route::post('cadastra', "API\Usuario@salvar");
+    Route::put('atualizar', "API\Usuario@atualizar");
 });
 
 
