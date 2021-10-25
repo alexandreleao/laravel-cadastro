@@ -15,12 +15,15 @@
 
   <div class="container">
 
-      <a href="{{ url('/home') }}">Home</a>
-      <a href="{{ url('/atualizar-perfil/19') }}">Atualizar Perfil</a>
+      <a href="{{ route('home') }}">Home</a>
+      
+      <a href="{{ route('atualizar.perfil', ['id' => 19 ]) }}">Atualizar Perfil</a>
+      
+      
         @yield('conteudo')
  </div>
         <footer>
-          <p> Digital - 2021</P>
+          <p> Digital - 2021</p>
         </footer>
   </body>
 </html>

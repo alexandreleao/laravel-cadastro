@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class Usuario extends Controller
 {
     public function cadastrar(){
-
+        
         return view('usuario.cadastro');
     }
     
@@ -22,7 +22,7 @@ class Usuario extends Controller
             
         ]);
         
-        $usuario = UsuarioModel::cadastrar($request);
+         $usuario = UsuarioModel::cadastrar($request);
         
  
         if($usuario){

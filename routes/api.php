@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Model\Usuario;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +23,10 @@ use App\Model\Usuario;
 Route::prefix('v1')->group(function(){
     Route::get('lista', function(){
         return Usuario::listar(10);
-    });
+    })->name('listar.usuarios.api');
 
-    Route::post('cadastra', "API\Usuario@salvar");
-    Route::put('atualizar', "API\Usuario@atualizar");
+    Route::post('cadastra', "API\UsuarioApiController@salvar")->name('cadastrar.api');
+    Route::put('atualizar/{id}', "API\UsuarioApiController@atualizar")->name('atualizar.api');
 });
 
 

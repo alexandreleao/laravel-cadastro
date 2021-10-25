@@ -11,7 +11,7 @@ class Usuario extends Model
 {
     
     protected $table =  'usuario';
-
+    
     public $timestamps = false;
 
     protected $fillable = [
@@ -27,7 +27,9 @@ class Usuario extends Model
         $this->attributes['senha'] = Hash::make($value); 
     }
 
-    public static function listar(int $limit){
+    public static function listar(int $limit)
+    {
+        /** SELECT id, nome, email, senha, data_cadastro from usuario limit 3 */
         $sql = self::select([
             "id",
             "nome",
@@ -40,7 +42,9 @@ class Usuario extends Model
         return $sql->get();
     }
 
-    public static function cadastrar(Request $request){
+    public static function cadastrar(Request $request)
+    {
+        
         $id = self::insertGetId([
             "nome" => $request->input('nome'),
             "email" => $request->input('email'),
@@ -52,8 +56,9 @@ class Usuario extends Model
         return self::where('id', $id)->get()->first();
     }
 
-       public static function atualizar(Request $request){
-        
+    public static function atualizar(Request $request)
+    {
+        /** update usuario set nome = $1, email = $2 where id = $3 */
         $save = self::where('id', $request->get('id'))
             ->update([
                 'nome' => $request->get('nome'),
